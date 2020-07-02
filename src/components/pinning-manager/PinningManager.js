@@ -104,14 +104,14 @@ const ServiceCell = ({ rowData }) => {
 }
 
 const SizeCell = ({ rowData }) => (
-  <p className={ !rowData.totalSize && 'gray'}>{ !rowData.totalSize ? 'N/A' : filesize(rowData.totalSize || 0, {
+  <p className={ !rowData.totalSize ? 'gray' : ''}>{ !rowData.totalSize ? 'N/A' : filesize(rowData.totalSize || 0, {
     round: rowData.totalSize >= 1000000000 ? 1 : 0, spacer: ''
   })}</p>
 )
-const BandwidthCell = ({ rowData }) => (<div className={!rowData.bandwidthUsed && 'gray'}>{rowData.bandwidthUsed || 'N/A'}</div>)
+const BandwidthCell = ({ rowData }) => (<div className={!rowData.bandwidthUsed ? 'gray' : ''}>{rowData.bandwidthUsed || 'N/A'}</div>)
 const AutoUploadCell = ({ autoUpload, t }) => (
   <div className="flex justify-between items-center">
-    <div className={!autoUpload && 'gray'}>{ autoUpload ? t('autoUploadKeys.' + autoUpload) : 'N/A' }</div>
+    <div className={!autoUpload ? 'gray' : ''}>{ autoUpload ? t('autoUploadKeys.' + autoUpload) : 'N/A' }</div>
     <OptionsCell t={t}/>
   </div>
 )
